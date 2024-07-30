@@ -75,7 +75,7 @@ body {
     overflow: auto;
 }
 
-.tasks{
+.task{
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -114,7 +114,7 @@ body {
     color: #6c9bbc;
 }
 
-.action-button.delete-buttom{
+.action-button.delete-button{
     color: #ee9ca7;
 }
 
