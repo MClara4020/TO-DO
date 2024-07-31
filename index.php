@@ -20,8 +20,15 @@
         </form>
     
         <div id="tasks">
+            <?php
+            foreach($tasks as $task):        
+            ?>
             <div class="tasks">
-                <input type="checkbox" name="progress" class="progress">
+                <input type="checkbox"
+                 name="progress" 
+                 class="progress <?= $task['completed'] ? 'done' : ''?>" 
+                 data-task-id="<?= $task['id']?>"
+                 <?= $task['completed'] ? 'checked' : '' ?> >
 
                 <p class="tasks-description">
                     Tema de casa
@@ -37,18 +44,19 @@
                     </a>
                 </div>
 
-                <form action=" " class="to-do-form">
-                    <input type="text" name="description" placeholder="edite sua tarefa aqui" required>
+                <form action="actions/update.php" method="post" class="to-do-form edit-task hidden">
+                    <input type="text" class="hidden" name="id" value="<?= $task['id']?>">
+                    <input type="text" name="description" placeholder="edite sua tarefa aqui" value="<?= $task['description']?>" >
                     <button type="submit" class="form-button confirm-button">
                         <i class="fa-solid fa-check"></i>
                     </button>
                 </form>
-
             </div>
+            <?php
+            endforeach
+            ?>
         </div>
-
     </div>
-
 
 <script src="src/javascript/script.js"> </script>
 
